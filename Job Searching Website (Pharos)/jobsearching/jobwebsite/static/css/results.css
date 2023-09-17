@@ -1,0 +1,31 @@
+  /* CSS used here will be applied after bootstrap.css */
+
+  .demo {
+    padding:50px;
+  }
+    
+  
+  input.faChkRnd {
+    visibility: hidden;
+  }
+  
+  input.faChkRnd:checked:after, input.faChkRnd:after {
+    visibility: visible;
+    font-family: FontAwesome;
+    font-size:25px; height: 17px; width: 17px;
+    position: relative;
+    top: -3px;
+    left: 0px;
+    background-color:#FFF;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  input.faChkRnd:checked:after {
+    content: '\f004';
+  }
+  
+  input.faChkRnd:after {
+    content: '\f08a';
+    color: red;
+  }

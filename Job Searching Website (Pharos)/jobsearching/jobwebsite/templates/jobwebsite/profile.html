@@ -1,0 +1,102 @@
+{% extends "jobwebsite/base.html" %}
+{% load static %} 
+
+{% block title %}
+Pharos | Profile
+{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}  
+
+	<!--User-->
+	<br><br>
+	<div class="container mx-auto">
+	    <div class="row">
+	    	<div class="col-sm-12 col-md-12 col-lg-3 pb-4">
+		    	<div class="card p-4">
+			    	<h4 class="card-title font-weight-bold text-center">Hello, {{ user.username }}</h4>
+			      	<hr>
+			    	<div class="card-text">
+			    		<p class="text-muted mb-0" style="font-size: 12px">Username:</p>
+			    		<p>{{ user.username }}</p>
+			    		<p class="text-muted mb-0" style="font-size: 12px">Name:</p>
+				  		<p>{{ user.first_name }} {{ user.last_name }}</p>
+				  		<p class="text-muted mb-0" style="font-size: 12px">Email:</p>
+				  		<p>{{ user.email }} </p>
+                        <p class="text-muted mb-0" style="font-size: 12px">Age:</p>
+				  		<p>{{ user.profile.age }} </p>
+                          <p class="text-muted mb-0" style="font-size: 12px">Birthday:</p>
+				  		<p>{{ user.profile.birthdate }} </p>
+                          <div class="text-right">
+							<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#profileModal">Edit Profile</button>
+						</div>
+			        </div>
+		    	</div>
+		  	</div>
+		    <div class="col-sm-12 col-md-12 col-lg-9 pb-4">
+				<div class="card p-4">
+			    	<h3 class="card-title font-weight-bold">Favorites</h3>
+			      	<hr>
+			    	<div class="card-text">
+			    		{% for i in favs %}
+							<h5 font-size="2.0em" class="mb-2 pb-2" id="title">- {{i.title}}
+								<a href = "{{i.url}}" target="_blank">
+									<i class="fas fa-briefcase fa-2x" style = "max-width: 50%; max-height: 50%; float:right"></i>
+									<!-- <button type="button" class="btn btn-outline-primary mb-1" style="float: right"> View </button>  -->
+								</a>
+							</h5>
+						<hr>
+						<br>
+						{% endfor %}
+			        </div>
+		    	</div>
+		      	<br>
+		    </div> 
+		</div>
+	</div>
+
+    <div class="modal fade" tabindex="-1" id="profileModal" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Edit Profile</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="small mb-1">Username:</label>
+									{{ user_form.username }}
+								<label for="small mb-1">Email:</label>
+									{{ user_form.email }}
+								<label class="small mb-1">First Name:</label>
+									{{ user_form.first_name }}
+								<label class="small mb-1">Last Name:</label>
+									{{ user_form.last_name }}
+								<!-- <label class="small mb-1">Age:</label>
+									{{ user_form.age }} -->
+							</div>
+							<!-- <div class="form-group">
+								<a href="#">Change Password</a>
+								<hr>
+							</div> -->
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Save changes</button>
+						<button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					</div>
+					</form>
+              </div>
+                
+          </div>
+        </div>
+  </div>
+
+	{% endblock %}

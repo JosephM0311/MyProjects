@@ -1,0 +1,29 @@
+{% extends "jobwebsite/base.html" %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% block title %}
+Pharos | Signup
+{% endblock %}
+
+{% block content %}
+{% bootstrap_javascript jquery='full' %}
+{{form.media}}
+<body>
+<div class="form" style ="margin-left: 38%;margin-right: 38%;margin-top:2%">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <form method="POST" class="form-group" >
+        <h1 class="mt-2" style = "font-size: 40px;">
+            Signup
+        </h1>
+        {% csrf_token %}
+        {{form|crispy}}
+        <p class="btnwrap"><button type="submit" class="btn btn-success" id ="submitBtn"
+            value="r" style = "background-color: #7568e7bd">Signup</button></p>
+    </form>
+    <p class="text-left">If you already have an account, <a href="/login">login</a> instead.</p>
+</div>
+</div>
+</body
+{% endblock %}

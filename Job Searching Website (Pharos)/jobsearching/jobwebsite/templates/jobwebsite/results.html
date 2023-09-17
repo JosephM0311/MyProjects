@@ -1,0 +1,83 @@
+{% extends "jobwebsite/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block css %} 
+<link href="{% static 'css/results.css' %}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="h1-responsive display-4 font-weight-bold text-center mt-5 pt-4 text-uppercase">{{kw}} Positions in {{lc}}</h1>
+  <br>
+
+  {% for i in jobs %}
+      <div class="shadow-lg mb-5 bg-white rounded" style = "margin-left: 10%; margin-right: 10%; margin-top: 4%; 
+      padding-left: 5%; padding-right: 5%; padding-top: 2.5%; padding-bottom: 2.5%;">
+           <div class="d-flex justify-content-between">
+              <h1 font-size="100px"  id="title"> {{i.title}}</h1>
+              <form method="POST">
+                {% csrf_token %} 
+                <input type="checkbox" id = {{i.url}} class="faChkRnd" name ="favorite" value={{i.id}} onChange="this.form.submit()">
+              </form>
+              
+            </div>
+          <h2 font-size="100px" class="my-2 lead" id="company" style = "font-size:1.9em"> {{i.company}}</h2>
+          <h3 font-size="100px" class="my-2 lead" id="salary" style="color:green;font-size:1.9em"> {{i.salary}}</h3>
+          <h3 font-size="100px" class="my-2 lead " id="location" style = "font-size:1.5em"> <i class="fas fa-map-marker-alt fa-1x" style = "max-width: 50%;
+            max-height: 50%;"></i> {{i.location}}</h3>
+          
+          <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#descriptionModal" data-whatever="{{ i.description }}"> View Description </button>
+
+          <div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Description</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  
+                </div>
+              </div>
+            </div>
+         </div>
+
+        <!-- <form method="POST">
+          {% csrf_token %}
+        <button type="submit"  name="moreInfo" value={{i.id}} class="moreInfo btn btn-outline-info mt-2">See More</button>
+        </form>
+      -->
+      <br>
+      <a href = "{{i.url}}" target="_blank"> <button name="applyHere" class="applyHere btn btn-outline-info">Apply</button> </a>
+      <br>
+      </div>
+    
+      {% endfor %}
+      
+      <script>
+        $(document).ready(function() {
+          $('#descriptionModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var description = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-body').text(description)
+          })
+        });
+
+      </script>
+    
+  {% endblock %}
+  
+</html>
+
+
+

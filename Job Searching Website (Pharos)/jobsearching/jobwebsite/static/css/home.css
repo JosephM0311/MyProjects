@@ -1,0 +1,179 @@
+.search{
+  width: 100%;
+  padding: 10%;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.search h1 {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 10px 30px;
+  
+}
+
+.requiredField {
+  margin-right: 15rem;
+}
+
+::placeholder {
+  color: #aaa;
+}
+
+.SearchButton button img {
+  width: 25px;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 20px;
+  opacity: 0.5;
+}
+
+.SearchButton {
+  margin-top: 30px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.SearchButton button{
+  border: 0;
+  font-size: 45px;
+  color: #fff;
+  width: 500px;
+  height: 150px;
+  position: relative;
+  align-items: center;
+  margin-right: 20px;
+  border-radius: 90px;
+  padding: 5px;
+  background: #7568e7;   
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.SearchButton button:hover {
+  background: #5D3FD3;
+}
+
+.form {
+  /* display: flex; */
+  /* background-color: #FFFFFF; */
+  /*margin: 16rem 38rem;*/
+  /* border-radius: 5rem; */
+  /* width: 50rem; */
+  /* height: 25rem; */
+  /* align-items: center; */
+  /* font-size: 5rem; */
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+#mission{
+  /* ackground-color: #116A7B;
+ */}
+
+#mission h2{
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 75px;
+  text-transform: uppercase;
+  padding: 5%;
+}
+
+#mission .statementBox {
+  border: 5px solid #fff;
+  border-radius: 20px;
+  padding: 2%;
+  font-size:25px;
+  color: #fff;
+}
+
+#about{
+  /* ackground-color: #C2DEDC;
+ */}
+
+#about h2{
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5%;
+}
+
+#about .founders{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+
+#about .founders .person {
+  flex: 1;
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+}
+
+#about .founders .person h3{
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+  
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .search-bar button {
+    margin-right: 0;
+  }
+  #about .founders{
+    flex-direction: column;
+  }
+}
+
+.reveal {
+  position: relative;
+  transition: all 1.5s ease;
+  opacity: 0;
+  transform: translateY(150px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+ }
+ 
+ .carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ }
