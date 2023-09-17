@@ -1,0 +1,25 @@
+name: BunBunExpress
+title: BunBunExpress | A Website for BunBunExpress
+description: Website for BunBunExpress
+tags:
+  - bunbun
+  - valentine's
+  - jekyll
+  - theme
+  - gift
+show_hero: true
+menu:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Contact
+    url: /contact
+  - title: Feed
+    url: /feed.xml
+email: mylove@gmail.com
+# See: https://disqus.com/
+disqus_username:
+# Contact Form Setting
+# See: https://formspree.io/
+formspree_form_id: formspree_form_id
